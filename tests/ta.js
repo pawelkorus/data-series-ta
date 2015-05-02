@@ -11,13 +11,23 @@ var extendedTestData = testData.map(function(v) { return v });
 Array.prototype.push.apply(extendedTestData, [5, 94.56, 23.456]);
 
 var fullData = [
-/*	 value,	open,	close,	min,	max			*/
-	[5.0,	3.0,	5.0,	1.0,	10.0],
-	[24.0,	12.0,	24.0,	0.1,	100.0],
-	[36.0,	1.0,	36.0,	1.0,	70.0],
-	[0.5,	0.5,	18.0,	0.5,	20.0],
-	[40.0,	42.0,	42.0,	40.0,	60.0],
-	[4.5,	15.0,	17.0,	4.5,	20.0] 
+/*	open,	close,	min,	max			*/
+	[3.0,	5.0,	1.0,	10.0],
+	[12.0,	24.0,	0.1,	100.0],
+	[1.0,	36.0,	1.0,	70.0],
+	[0.5,	18.0,	0.5,	20.0],
+	[42.0,	42.0,	40.0,	60.0],
+	[15.0,	17.0,	4.5,	20.0] 
+]
+
+var stochasticOscilatorTestData = [
+/*	close,	min,	max			*/
+	[5.0,	1.0,	10.0],
+	[24.0,	0.1,	100.0],
+	[36.0,	1.0,	70.0],
+	[18.0,	0.5,	20.0],
+	[42.0,	40.0,	60.0],
+	[17.0,	4.5,	20.0] 
 ]
 
 var check = function(expected, op) {
@@ -35,7 +45,7 @@ var data = [
 ['WMA(3)', testData, [undefined, undefined, 119.27, 96.163, 51.057, 67.58333333], ta.WMA(3)],
 ['EMA(0.33)', testData, [3, 3.6, 80.51333333, 65.17555556, 43.7837037, 70.1891358], ta.EMA(1/3)],
 ['ROC(3)', extendedTestData, [undefined, undefined, undefined, 10.5, -0.791666667, -0.475121618, -0.855072464, 93.56, -0.809300813], ta.ROC(3)],
-['%K3 Stochastic Oscilator', fullData, [undefined, undefined, 35.93593594, 17.91791792, 59.71223022, 27.73109244], ta.StochasticOscilator(3)],
+['%K3 Stochastic Oscilator', stochasticOscilatorTestData, [undefined, undefined, 35.93593594, 17.91791792, 59.71223022, 27.73109244], ta.StochasticOscilator(3)],
 ];
 
 data.forEach(function(v) {
