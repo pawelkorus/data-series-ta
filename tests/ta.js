@@ -30,10 +30,25 @@ var stochasticOscilatorTestData = [
 	[17.0,	4.5,	20.0] 
 ]
 
+var macdExpectedData = [
+	[ 0,			3 ],
+	[ 0.14359,		3.36 ],
+	[ 18.56533,		49.556 ],
+	[ 16.84510,		46.54480 ],
+	[ 12.63301,		37.43584 ],
+	[ 18.92117,		54.54867 ]
+]
+
 var check = function(expected, op) {
 	expected.forEach(function(v) {
 		if(v === undefined) {
 			expect(op.next()).to.be.equal(v);
+		} else if(Array.isArray(v)) {
+			outputValues = op.next();
+
+			v.forEach(function(el, index) {
+				expect(outputValues[index]).to.be.closeTo(el, 0.001);
+			})
 		} else {
 			expect(op.next()).to.be.closeTo(v, 0.001);
 		}
@@ -46,6 +61,7 @@ var data = [
 ['EMA(5)', testData, [3, 3.6, 80.51333333, 65.17555556, 43.7837037, 70.1891358], ta.EMA(5)],
 ['ROC(3)', extendedTestData, [undefined, undefined, undefined, 10.5, -0.791666667, -0.475121618, -0.855072464, 93.56, -0.809300813], ta.ROC(3)],
 ['%K3 Stochastic Oscilator', stochasticOscilatorTestData, [undefined, undefined, 35.93593594, 17.91791792, 59.71223022, 27.73109244], ta.StochasticOscilator(3)],
+['MACD(12,26,9)', testData, macdExpectedData, ta.MACD(12, 26, 9)]
 ];
 
 data.forEach(function(v) {
