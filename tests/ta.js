@@ -43,7 +43,7 @@ var check = function(expected, op) {
 var data = [
 ['SMA(3)', testData, [undefined, undefined, 80.71333, 91.21333, 89.94667, 52.83333], ta.SMA(3)],
 ['WMA(3)', testData, [undefined, undefined, 119.27, 96.163, 51.057, 67.58333333], ta.WMA(3)],
-['EMA(0.33)', testData, [3, 3.6, 80.51333333, 65.17555556, 43.7837037, 70.1891358], ta.EMA(1/3)],
+['EMA(5)', testData, [3, 3.6, 80.51333333, 65.17555556, 43.7837037, 70.1891358], ta.EMA(5)],
 ['ROC(3)', extendedTestData, [undefined, undefined, undefined, 10.5, -0.791666667, -0.475121618, -0.855072464, 93.56, -0.809300813], ta.ROC(3)],
 ['%K3 Stochastic Oscilator', stochasticOscilatorTestData, [undefined, undefined, 35.93593594, 17.91791792, 59.71223022, 27.73109244], ta.StochasticOscilator(3)],
 ];
