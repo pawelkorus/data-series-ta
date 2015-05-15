@@ -61,7 +61,8 @@ var data = [
 ['EMA(5)', testData, [3, 3.6, 80.51333333, 65.17555556, 43.7837037, 70.1891358], ta.EMA(5)],
 ['ROC(3)', extendedTestData, [undefined, undefined, undefined, 10.5, -0.791666667, -0.475121618, -0.855072464, 93.56, -0.809300813], ta.ROC(3)],
 ['%K3 Stochastic Oscilator', stochasticOscilatorTestData, [undefined, undefined, 35.93593594, 17.91791792, 59.71223022, 27.73109244], ta.StochasticOscilator(3)],
-['MACD(12,26,9)', testData, macdExpectedData, ta.MACD(12, 26, 9)]
+['MACD(12,26,9)', testData, macdExpectedData, ta.MACD(12, 26, 9)],
+['TSI(25,13)', testData, [undefined, -100, -100, -47.9086330651, -28.5510354789, -26.4649366045], ta.TSI(25,13)]
 ];
 
 data.forEach(function(v) {
