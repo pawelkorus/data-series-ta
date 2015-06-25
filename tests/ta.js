@@ -1,6 +1,6 @@
-var arrayIterator = require('../').arrayIterator;
-var functionOperator = require('../').functionOperator;
-var ta = require('../').ta;
+var arrayIterator = require('data-series').arrayIterator;
+var functionOperator = require('data-series').functionOperator;
+var ta = require('../');
 var expect = require('chai').expect;
 
 describe('technical analysis', function() {
